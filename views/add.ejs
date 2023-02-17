@@ -1,0 +1,32 @@
+<%- include('header')%>
+
+
+
+<!-- NAV -->
+<%- include('nav')%>
+
+ <form  class="container w-50" action="/add" method="post" enctype="multipart/form-data">
+    <h2 class="text-success mb-3">Add images ...</h2>
+    <input class="form-control fs-5" type="text" name="title" placeholder="Title">
+    <input class="form-control mt-4 fs-5" type="text" name="author" placeholder="Author">
+
+    <div class="mt-4 mb-4 fs-5 d-flex align-items-center justify-content-between uploadfile">
+       <input  class="form-control mt-4 fs-5 w-75" type="file" name="image">
+       <img class="preview" width="100" src="" alt="">
+        
+    </div>
+    <button class="btn btn-primary">Add image</button>
+   
+ </form>
+
+
+ <script>
+    const uploadfile=document.querySelector(".uploadfile");
+    const preview=document.querySelector(".preview");
+    uploadfile.addEventListener("change",function(e){
+        preview.src=URL.createObjectURL(e.target.files[0])
+    })
+
+ </script>
+<!--FOOTER  -->
+<%- include('footer')%>
